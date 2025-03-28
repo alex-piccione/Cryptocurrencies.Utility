@@ -1,0 +1,169 @@
+{
+  "version": 2,
+  "dependencies": {
+    "net9.0": {
+      "FSharp.Core": {
+        "type": "Direct",
+        "requested": "[9.0.201, )",
+        "resolved": "9.0.201",
+        "contentHash": "Ozq4T0ISTkqTYJ035XW/JkdDDaXofbykvfyVwkjLSqaDZ/4uNXfpf92cjcMI9lf9CxWqmlWHScViPh/4AvnWcw=="
+      },
+      "Newtonsoft.Json": {
+        "type": "Direct",
+        "requested": "[13.0.3, )",
+        "resolved": "13.0.3",
+        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+      },
+      "Spectre.Console": {
+        "type": "Direct",
+        "requested": "[0.49.1, )",
+        "resolved": "0.49.1",
+        "contentHash": "USV+pdu49OJ3nCjxNuw1K9Zw/c1HCBbwbjXZp0EOn6wM99tFdAtN34KEBZUMyRuJuXlUMDqhd8Yq9obW2MslYA=="
+      },
+      "Flurl": {
+        "type": "Transitive",
+        "resolved": "2.8.2",
+        "contentHash": "3VEYAqkGTGHgla4xuyEB4d8XGLeMX2k05C4WfI7YmKQHsL7RhoGu3L6h1xsKKTPFWjEL13p09XOIGwD1pQ86dg=="
+      },
+      "Flurl.Http": {
+        "type": "Transitive",
+        "resolved": "2.4.2",
+        "contentHash": "VfSJ0DKzh6kf2IOZGG1/JpHajhtqzGp1t+M1QSyFGse7c4Gg1DpH80LTveYea2hV1BEtvPPEp6A4iZ78D8bxGQ==",
+        "dependencies": {
+          "Flurl": "2.8.2",
+          "Newtonsoft.Json": "12.0.2",
+          "System.Text.Encoding.CodePages": "4.5.1"
+        }
+      },
+      "FSharp.Data": {
+        "type": "Transitive",
+        "resolved": "6.4.0",
+        "contentHash": "KfQbbvlLgP0zaZyp8YhS2+FsxBvhYC9o08emNMcwmpAvnLz9vEMbNefYFQiZX5i/0kAMYh5oDqTbvx3RJSbJFA==",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Csv.Core": "6.4.0",
+          "FSharp.Data.Html.Core": "6.4.0",
+          "FSharp.Data.Http": "6.4.0",
+          "FSharp.Data.Json.Core": "6.4.0",
+          "FSharp.Data.Runtime.Utilities": "6.4.0",
+          "FSharp.Data.WorldBank.Core": "6.4.0",
+          "FSharp.Data.Xml.Core": "6.4.0"
+        }
+      },
+      "FSharp.Data.Csv.Core": {
+        "type": "Transitive",
+        "resolved": "6.4.0",
+        "contentHash": "kpQnKLPq2OjT7b3uWxDCraY0jbSJohA5hFCZ9bcTzOX0TqU6kVgcR5gCT5jN/dA4y5/qqtT5g9wCDVTmBE/enQ==",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Runtime.Utilities": "6.4.0"
+        }
+      },
+      "FSharp.Data.Html.Core": {
+        "type": "Transitive",
+        "resolved": "6.4.0",
+        "contentHash": "W5yJ0YarszKRKavgiGLFCsbUSmD6CIUNwX3Upq1l8XgICWKU+IIms1xKA3wIsgyHEJlF+Yviy3tp0b7qnq+I5w==",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Csv.Core": "6.4.0",
+          "FSharp.Data.Runtime.Utilities": "6.4.0"
+        }
+      },
+      "FSharp.Data.Http": {
+        "type": "Transitive",
+        "resolved": "6.4.0",
+        "contentHash": "Q9JNs1xkvoiVRLRMr+RtK6rQHKEQYaG3SckdVl4vYI17mZmUIrWyBDuzLFnO53K9d7zvHrOIjXzGyZ5bGpLCrA==",
+        "dependencies": {
+          "FSharp.Core": "6.0.1"
+        }
+      },
+      "FSharp.Data.Json.Core": {
+        "type": "Transitive",
+        "resolved": "6.4.0",
+        "contentHash": "iJmuQWrSdErpA9I/UwY1Yzo5ZdXzYqPuoA7Kz32aybkgVYTTV7U1LzA/tAEOMVCmYM9/PHi9F6Oam8qDSbgAGw==",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Http": "6.4.0",
+          "FSharp.Data.Runtime.Utilities": "6.4.0"
+        }
+      },
+      "FSharp.Data.Runtime.Utilities": {
+        "type": "Transitive",
+        "resolved": "6.4.0",
+        "contentHash": "V5JihdafBjtwJYP2Tgf49K/jwFMvNfq4vRY2cPDJ2sL9bPYJQHiEApLJCF43P1sPFskGkQiNi+mWi0+4zVmTGg==",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Http": "6.4.0"
+        }
+      },
+      "FSharp.Data.WorldBank.Core": {
+        "type": "Transitive",
+        "resolved": "6.4.0",
+        "contentHash": "Luv+XWQkaANMFzp+0Hr3N/7ALrJp9U80V+OjHs13iYuJiCPGI2Jn2v+SS4rNlMxp+rGb6fW/azbuQMsZfku7PQ==",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Http": "6.4.0",
+          "FSharp.Data.Json.Core": "6.4.0",
+          "FSharp.Data.Runtime.Utilities": "6.4.0"
+        }
+      },
+      "FSharp.Data.Xml.Core": {
+        "type": "Transitive",
+        "resolved": "6.4.0",
+        "contentHash": "t10Mu6N77xyQQ6T6atITp2ZUOetiBy9fAVL124GCUaTDwdZYUcL4sDOp/oY4IX0kvgzR19pMvkEiBk2tlA8Lvg==",
+        "dependencies": {
+          "FSharp.Core": "6.0.1",
+          "FSharp.Data.Http": "6.4.0",
+          "FSharp.Data.Json.Core": "6.4.0",
+          "FSharp.Data.Runtime.Utilities": "6.4.0"
+        }
+      },
+      "Microsoft.NETCore.Platforms": {
+        "type": "Transitive",
+        "resolved": "2.1.2",
+        "contentHash": "mOJy3M0UN+LUG21dLGMxaWZEP6xYpQEpLuvuEQBaownaX4YuhH6NmNUlN9si+vNkAS6dwJ//N1O4DmLf2CikVg=="
+      },
+      "System.Runtime.CompilerServices.Unsafe": {
+        "type": "Transitive",
+        "resolved": "4.5.2",
+        "contentHash": "wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ=="
+      },
+      "System.Text.Encoding.CodePages": {
+        "type": "Transitive",
+        "resolved": "4.5.1",
+        "contentHash": "4J2JQXbftjPMppIHJ7IC+VXQ9XfEagN92vZZNoG12i+zReYlim5dMoXFC1Zzg7tsnKDM7JPo5bYfFK4Jheq44w==",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.1.2",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        }
+      },
+      "main": {
+        "type": "Project",
+        "dependencies": {
+          "Alex75.Cryptocurrencies": "[1.5.30, )",
+          "FSharp.Core": "[9.0.201, )",
+          "Newtonsoft.Json": "[13.0.3, )",
+          "Portable.BouncyCastle": "[1.9.0, )"
+        }
+      },
+      "Alex75.Cryptocurrencies": {
+        "type": "CentralTransitive",
+        "requested": "[1.5.30, )",
+        "resolved": "1.5.30",
+        "contentHash": "XmkTC+fPD/gRbW2ilmBSzil6lU+Wom2bTCcMKadzeTh6WTD0U1EuEwgChXc+4ZSwtnKg/3guWbmj0cuGO7HRCg==",
+        "dependencies": {
+          "FSharp.Core": "7.0.0",
+          "FSharp.Data": "6.4.0",
+          "Flurl.Http": "2.4.2",
+          "Portable.BouncyCastle": "1.9.0"
+        }
+      },
+      "Portable.BouncyCastle": {
+        "type": "CentralTransitive",
+        "requested": "[1.9.0, )",
+        "resolved": "1.9.0",
+        "contentHash": "eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw=="
+      }
+    }
+  }
+}
