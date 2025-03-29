@@ -63,5 +63,10 @@ let GenerateNewAddress () =
 
     {Address=address; PrivateKeyHex=privateKeyHex}
 
-let ExecutePayment () =
+
+type PaymentRequest = { From:string; To:string; ToTag:string option; Amount: decimal; Note: string option}
+
+let ExecutePayment (request:PaymentRequest) =
+
+
     ()

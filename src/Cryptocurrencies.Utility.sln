@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Main", "Library\Main.fsproj", "{3A9FEB88-4140-48B0-986A-830064E08FD1}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Library", "Library\Library.fsproj", "{3A9FEB88-4140-48B0-986A-830064E08FD1}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.fsproj", "{81F45549-C6D1-4A4E-8817-40A36C62DFE7}"
 EndProject
@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Packages.props = Directory.Packages.props
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "UnitTests", "UnitTests\UnitTests.fsproj", "{B7FE5B1D-8862-4E09-85CA-67B966089A97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{81F45549-C6D1-4A4E-8817-40A36C62DFE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81F45549-C6D1-4A4E-8817-40A36C62DFE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81F45549-C6D1-4A4E-8817-40A36C62DFE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7FE5B1D-8862-4E09-85CA-67B966089A97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7FE5B1D-8862-4E09-85CA-67B966089A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7FE5B1D-8862-4E09-85CA-67B966089A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7FE5B1D-8862-4E09-85CA-67B966089A97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

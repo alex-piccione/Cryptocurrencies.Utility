@@ -5,12 +5,12 @@ It uses .net 9.
 Code is mainly F#.  
 
 
-# Ethereum
+## Ethereum
 
 - Genearate a random Private Key and Address
 
 
-# XRP Ledger
+## XRP Ledger
 
 - Genearate a random Private Key and Address
 - Execute a Payment Transaction **(under development!)**
