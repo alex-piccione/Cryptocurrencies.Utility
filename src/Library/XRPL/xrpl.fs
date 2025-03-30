@@ -1,72 +1,70 @@
 ﻿module xrpl.main
 
+open System
 open System.Security.Cryptography
-open Org.BouncyCastle.Crypto
-open Org.BouncyCastle.Crypto.Generators
-open Org.BouncyCastle.Crypto.Parameters
-open Org.BouncyCastle.Security
 open Org.BouncyCastle.Crypto.Digests
-open xrpl.base58
+open Org.BouncyCastle.Crypto.Parameters
 
-type GeneratedAddress = { Address:string; PrivateKeyHex: string}
-
-// Generate an Ed25519 key pair
-let private generateEd25519KeyPair () : AsymmetricCipherKeyPair =
-    let keyPairGenerator = new Ed25519KeyPairGenerator()
-    let secureRandom = new SecureRandom()
-    let keyGenerationParameters = KeyGenerationParameters(secureRandom, 256) // 256 bits for Ed25519
-    keyPairGenerator.Init(keyGenerationParameters)
-    keyPairGenerator.GenerateKeyPair()
-
-// Get the private and public keys bytes from the key pair
-let private getKeysBytes (keyPair : AsymmetricCipherKeyPair) : byte array * byte array =
-    let privateKeyParams = keyPair.Private :?> Ed25519PrivateKeyParameters
-    let publicKeyParams = keyPair.Public :?> Ed25519PublicKeyParameters
-    privateKeyParams.GetEncoded(), publicKeyParams.GetEncoded()
+type PaymentRequest = { From:string; To:string; ToTag:string option; Amount: decimal; Note: string option}
+    
+let ExecutePayment (request:PaymentRequest) =
+ 
+    ()
 
 
-// Derive the XRP address from the public key bytes
-let deriveAddress (publicKeyBytes : byte array) : string =
-    // 1. Calculate the Account ID (RIPEMD-160 of SHA-256 of the public key)
+
+type GeneratedAccount = { Address:string; Secret: string}
+
+let private generateSeed () : byte[] =
+    let rng = RandomNumberGenerator.Create()
+    let seed = Array.zeroCreate<byte> 16
+    rng.GetBytes(seed)
+    seed
+
+let private deriveSecret (seed: byte[]) : string =
+    // Secret format: [0x21][16-byte seed][4-byte checksum]
+    let payload = Array.append [| 0x21uy |] seed
+    use sha256 = SHA256.Create()
+    let checksum = sha256.ComputeHash(sha256.ComputeHash(payload)) |> Array.take 4
+    Array.concat [ payload; checksum ] |> base58.Encode
+
+let deriveAddress (publicKey: byte array) : string =
+
+    // 1. Prepend Ed25519 prefix (0xED)
+    let masterPublicKey = Array.append [|0xEDuy|] publicKey
+
+    // 2. Calculate the Account ID (RIPEMD-160 of SHA-256 of the public key)
     let sha256 = SHA256.Create()
     let ripemd160Digest = new RipeMD160Digest()
-    let sha256Hash = sha256.ComputeHash(publicKeyBytes)
+    let sha256Hash = sha256.ComputeHash(masterPublicKey)
 
     ripemd160Digest.BlockUpdate(sha256Hash, 0, sha256Hash.Length)
     let accountId = Array.zeroCreate<byte> (ripemd160Digest.GetDigestSize())
     ripemd160Digest.DoFinal(accountId, 0) |> ignore
 
-    // 2. XRP address version byte (0x00)
-    let versionByte = [| byte 0 |]
+    // 3. Add version byte (0x00) and checksum
+    let payload = Array.append [|0x00uy|] accountId
+    let checksum = sha256.ComputeHash(sha256.ComputeHash(payload)) |> Array.take 4
 
-    // 3. Combine version byte and Account ID
-    let payload = Array.concat [ versionByte; accountId ]
-
-    // 4. Calculate the checksum (first 4 bytes of SHA-256 hash of the payload)
-    let hash = SHA256.Create().ComputeHash(payload)
-    let checksum = Array.sub hash 0 4
-
-    // 5. Combine payload and checksum
-    let addressBytes = Array.concat [ payload; checksum ]
-
-    // 6. Encode to Base58 using BogaNet.Encoder
-    let address = XrpBase58.Encode addressBytes
-
-    address
+    // 4. Base58 encode (using correct alphabet order)
+    Array.concat [ payload; checksum ] |> base58.Encode
 
 
-let GenerateNewAddress () =
-    let keyPair = generateEd25519KeyPair ()
-    let privateKeyBytes, publicKeyBytes = getKeysBytes keyPair
-    let privateKeyHex = System.Convert.ToHexString privateKeyBytes
-    let address = deriveAddress publicKeyBytes
+let internal generateAccountFromSeed (seed:byte array) =
 
-    {Address=address; PrivateKeyHex=privateKeyHex}
+    use sha512 = SHA512.Create()
 
+    let secret = deriveSecret seed
+   
+    let privateKey = sha512.ComputeHash(seed) |> Array.take 32
 
-type PaymentRequest = { From:string; To:string; ToTag:string option; Amount: decimal; Note: string option}
+    let privateKeyParameter = Ed25519PrivateKeyParameters(privateKey, 0)
+    let publicKey = privateKeyParameter.GeneratePublicKey().GetEncoded()
 
-let ExecutePayment (request:PaymentRequest) =
+    let address = deriveAddress publicKey
 
+    { Address = address; Secret = secret }
 
-    ()
+let GenerateAccount () : GeneratedAccount =
+    let seed = generateSeed()
+    generateAccountFromSeed seed

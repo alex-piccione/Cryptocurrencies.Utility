@@ -8,17 +8,21 @@
         "resolved": "6.0.4",
         "contentHash": "lkhqpF8Pu2Y7IiN7OntbsTtdbpR1syMsm2F3IgX6ootA4ffRqWL5jF7XipHuZQTdVuWG/gVAAcf8mjk8Tz0xPg=="
       },
-      "FluentAssertions": {
-        "type": "Direct",
-        "requested": "[8.2.0, )",
-        "resolved": "8.2.0",
-        "contentHash": "Gh4jkECcrR0i17ofCVqsiVz2+lxC+p5TYFPCrbZFi7eQQWGEZhvCDwvhycBKX1Kmtbd+H2CW/ugW7wdH9Br9NQ=="
-      },
       "FSharp.Core": {
         "type": "Direct",
         "requested": "[9.0.201, )",
         "resolved": "9.0.201",
         "contentHash": "Ozq4T0ISTkqTYJ035XW/JkdDDaXofbykvfyVwkjLSqaDZ/4uNXfpf92cjcMI9lf9CxWqmlWHScViPh/4AvnWcw=="
+      },
+      "FsUnit": {
+        "type": "Direct",
+        "requested": "[7.0.1, )",
+        "resolved": "7.0.1",
+        "contentHash": "VGY9dbzW1exCQsZq+yQ0Z94GeUzRvCmvmO0JK4iSfeFMMcE86OXNg3k6u+/V1DpkPMmAcEOty/HCu0ItfWZN4g==",
+        "dependencies": {
+          "FSharp.Core": "5.0.2",
+          "NUnit": "4.0.1"
+        }
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",
@@ -230,6 +234,14 @@
           "System.Text.Encodings.Web": "6.0.0"
         }
       },
+      "library": {
+        "type": "Project",
+        "dependencies": {
+          "FSharp.Core": "[9.0.201, )",
+          "Newtonsoft.Json": "[13.0.3, )",
+          "Portable.BouncyCastle": "[1.9.0, )"
+        }
+      },
       "MSTest.TestAdapter": {
         "type": "CentralTransitive",
         "requested": "[3.8.3, )",
@@ -254,6 +266,12 @@
         "requested": "[13.0.3, )",
         "resolved": "13.0.3",
         "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+      },
+      "Portable.BouncyCastle": {
+        "type": "CentralTransitive",
+        "requested": "[1.9.0, )",
+        "resolved": "1.9.0",
+        "contentHash": "eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw=="
       }
     }
   }

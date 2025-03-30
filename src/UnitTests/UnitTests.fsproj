@@ -9,18 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--<Using Include="NUnit.Framework" />
-    <Using Include="NUnit.TestAdapter" />-->
-    <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="coverlet.collector">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="FluentAssertions" />
     <PackageReference Include="FSharp.Core" />
+    <PackageReference Include="FsUnit" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="MSTest" />
     <PackageReference Include="NUnit" />
@@ -32,8 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="UnitTest1.fs" />
+    <Compile Include="XRPL\test data.fs" />
+    <Compile Include="XRPL\xrpl.test.fs" />
     <Compile Include="program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Library\Library.fsproj" />
   </ItemGroup>
 
 </Project>

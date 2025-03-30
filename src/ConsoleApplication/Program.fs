@@ -7,7 +7,7 @@ let rec execute () =
     //AnsiConsole.Clear()
     let action = 
         AnsiConsole.Prompt(SelectionPrompt<string>(Title="What do you want to do?")
-            .AddChoices("Generate Ethereum address", "Generate XRP address", "Exit"))
+            .AddChoices("Generate Ethereum address", "Generate XRPL Account", "Exit"))
     
     match action with
     | "Exit" -> AnsiConsole.WriteLine "Bye bye"
@@ -18,21 +18,23 @@ let rec execute () =
         let address = utility.GenerateNewAddress()
         AnsiConsole.MarkupLine $"Private Key: [yellow]{address.PrivateKeyHex}[/]"
         AnsiConsole.MarkupLine $"Address    : [yellow]{address.Address}[/]"
-    | "Generate XRP address" -> 
+    | "Generate XRPL Account" -> 
 
         AnsiConsole.Clear()
-        AnsiConsole.MarkupLine "[blue]Generate XRP Address[/]\n"
+        AnsiConsole.MarkupLine "[blue]Generate XRPL Account[/]\n"
 
-        let address = xrpl.main.GenerateNewAddress()
-        AnsiConsole.MarkupLine $"Private Key: [yellow]{address.PrivateKeyHex}[/]"
-        AnsiConsole.MarkupLine $"Address    : [yellow]{address.Address}[/]"
+        //for x in [1..1000000] do
+        let account = xrpl.main.GenerateAccount()
+        AnsiConsole.MarkupLine $"Address: [yellow]{account.Address}[/]"
+        AnsiConsole.MarkupLine $"Secret : [yellow]{account.Secret}[/]"
+        
 
     //| "Generate TOTP code" ->
     //    if secretKey.IsNone
     //    then secretKey <- Some(AnsiConsole.Ask<string>("Secret Key:"))
     //    TOTP.GenerateCode (secretKey.Value)
 
-    | _ -> AnsiConsole.WriteLine $"Unknown action: {action}"
+    | _ -> AnsiConsole.MarkupLine $"[red]Unknown action: {action}[/]"
 
     if action <> "Exit" then execute()
 

@@ -4,6 +4,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="assembly.config.fs" />
     <Compile Include="XRPL\base58.fs" />
     <Compile Include="XRPL\xrpl.fs" />
     <Compile Include="Library.fs" />
